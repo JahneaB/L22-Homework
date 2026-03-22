@@ -1,5 +1,4 @@
-# Name: [YOUR NAME]
-# Student ID: [YOUR ID]
+# Name: [Jahnea]
 # COP2080 - Programming Assignment 4: Streamlit Interactive Dashboard
 
 import streamlit as st
