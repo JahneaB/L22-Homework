@@ -1,10 +1,12 @@
+
 [project]
-name = "pa4-crypto-dashboard"
+name = "pa4-dashboard"
 version = "0.1.0"
-description = "A Streamlit dashboard for CoinGecko data"
 requires-python = ">=3.10"
+
+[project.dependencies]
 dependencies = [
-    "streamlit>=1.30.0",
-    "pandas>=2.0.0",
-    "requests>=2.31.0"
+    "streamlit>=1.30",
+    "pandas>=2.0",
+    "requests>=2.31"
 ]
