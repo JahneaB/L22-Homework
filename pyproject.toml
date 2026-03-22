@@ -1,4 +1,4 @@
-
+[project]
 name = "pa4-crypto-dashboard"
 version = "0.1.0"
 description = "A Streamlit dashboard for CoinGecko data"
