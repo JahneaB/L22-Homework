@@ -14,15 +14,22 @@ st.set_page_config(page_title="Crypto Tracker", layout="wide")
 def fetch_coin_list():
     """Fetches list of top coins to populate the dropdown."""
     try:
+        # Simplified URL and parameters to avoid 422 errors
         url = "https://api.coingecko.com/api/v3/coins/markets"
-        params = {"vs_currency": "usd", "order": "market_cap_desc", "per_page": 10, "page": 1}
-        response = requests.get(url)
-        response.raise_for_status()
-        return pd.DataFrame(response.json())
+        params = {
+            "vs_currency": "usd",
+            "order": "market_cap_desc",
+            "per_page": 10,  # Reduced from 50 to 10
+            "page": 1,
+            "sparkline": "false"
+        }
+        response = requests.get(url, params=params)
+        response.raise_for_status() # Check for errors FIRST
+        data = response.json()
+        return pd.DataFrame(data)
     except Exception as e:
         st.error(f"Failed to fetch coin list: {e}")
         return pd.DataFrame()
-
 @st.cache_data(ttl=300)
 def fetch_historical_data(coin_id, days):
     """Fetches historical price data for the time series chart."""
