@@ -15,7 +15,7 @@ def fetch_coin_list():
     """Fetches list of top coins to populate the dropdown."""
     try:
         url = "https://api.coingecko.com/api/v3/coins/markets"
-        params = {"vs_currency": "usd", "order": "market_cap_desc", "per_page": 50, "page": 1}
+        params = {"vs_currency": "usd", "order": "market_cap_desc", "per_page": 10, "page": 1}
         response = requests.get(url)
         response.raise_for_status()
         return pd.DataFrame(response.json())
